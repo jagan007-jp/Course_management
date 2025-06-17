@@ -3,6 +3,7 @@ import Login from "./pages/login.jsx";
 import Register from "./pages/register.jsx";
 import Home from "./pages/home.jsx";
 import Favourites from "./pages/favourites.jsx";
+import Roadmap from "./pages/roadmap.jsx";
 
 export default function App(){
   return(
@@ -11,6 +12,7 @@ export default function App(){
       <Route path="/register" element={<Register />}/>
       <Route path="/home" element={<Home />}/>
       <Route path="/favourites" element={<Favourites />}/>
+      <Route path="/roadmap" element={<Roadmap />}/>
     </Routes>
   )
 }

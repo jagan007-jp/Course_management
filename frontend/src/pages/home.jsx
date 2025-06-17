@@ -22,24 +22,39 @@ function Navbar() {
     <nav
       style={{
         display: "flex",
-        justifyContent: "space-between",
         alignItems: "center",
+        justifyContent: "space-between",
         padding: "10px 20px",
         backgroundColor: "#333",
         color: "white",
         fontWeight: "bold",
+        position: "relative",
+        borderRadius: "10px",
+        backgroundImage: "linear-gradient(to bottom right, black, rgb(124, 33, 0), black, rgb(124, 33, 0), black)",
+        border: "1px solid gray"
       }}
     >
-      <div style={{ display: "flex", gap: 20 }}>
+      <div style={{ display: "flex", gap: 20, flex: 1 }}>
         <a href="/home" style={{ color: "white", textDecoration: "none" }}>
           Home
         </a>
         <a href="/favourites" style={{ color: "white", textDecoration: "none" }}>
           Favourites
         </a>
+        <a href="/roadmap" style={{ color: "white", textDecoration: "none" }}>
+          Learning roadmap
+        </a>
       </div>
-      <div style={{display:"flex",alignItems:"center",fontSize:"x-large"}}>Simple Learning App</div>
-      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <div style={{
+        fontSize: "x-large",
+        position: "absolute",
+        left: "50%",
+        transform: "translateX(-50%)",
+        whiteSpace: "nowrap"
+      }}>
+        Simple Learning App
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, flex: 1, justifyContent: "flex-end" }}>
         <img
           src="https://media.istockphoto.com/id/1317551891/vector/account-avatar-member-person-profle-user-icon-eps-vector.jpg?s=612x612&w=0&k=20&c=wsVtFuxw-tZOIrLIff8gY8b49xNxeGCnXqM8OGJyiS8="
           alt="profile"
@@ -164,16 +179,17 @@ function CourseGrid() {
             borderRadius: 8,
             padding: 10,
             textAlign: "center",
+            backgroundColor: "rgba(128, 128, 128, 0.4)"
           }}
         >
           <a href={course.link} target="_blank"><img
             src={course.image}
             alt={course.title}
-            style={{ width: "100%", height:"420px", borderRadius: 6, marginBottom: 10 }}
+            style={{ width: "100%", height:"420px", borderRadius: 6, marginBottom: 10, backgroundColor:"white" }}
             onMouseOver={mouseOver}
             onMouseOut={mouseOut}
           /></a>
-          <h3>{course.title}</h3>
+          <h3 style={{color:"white"}}>{course.title}</h3>
           <button
             style={{
               padding: "8px 16px",
@@ -200,7 +216,14 @@ function CourseGrid() {
 
 export default function App() {
   return (
-    <div>
+    <div 
+      style={{backgroundImage:"url('https://media.istockphoto.com/id/1411847689/vector/abstract-black-background-with-neon-light-lines.jpg?s=612x612&w=0&k=20&c=pt7FvjoR38enTYy8nKGHblyeOrdCMlwlTWjDZ9dOLis=')",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      backgroundAttachment: "fixed",
+      minHeight: "100vh",
+      borderRadius:"10px"
+    }}>
       <Navbar />
       <CourseGrid />
     </div>
